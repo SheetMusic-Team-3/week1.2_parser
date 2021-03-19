@@ -1,11 +1,12 @@
-""" To generate a PDF version of sheet music from the info generated from the semantic model:
+""" To generate a PDF version sheet music from the info generated from the semantic model:
     1. Download LilyPond (http://lilypond.org/index.html)
-    2. Copy the output of the semantic model into plain text (you can just paste it into spotlight or the google search bar to do this)
+    2. Copy the output of the semantic model into plain text (you can 
+    just paste it into spotlight or the google search bar to do this)
     3. Run the generate_music function with the plain text output
     4. Open the generated .ly (LilyPond) file, and compile (command + R)
 """
 
-## Test input:
+# Test input:
 
 """clef-C1
 keySignature-EbM
@@ -41,32 +42,32 @@ keySigSemanticToLP = {
     "D#M" : "\\key dis \\major",
     "Dbm" : "\\key des \\minor",
     "DbM" : "\\key des \\major",
-    "Em" : "\\key e \\minor",
-    "EM" : "\\key e \\major",
+    "Em"  : "\\key e \\minor",
+    "EM"  : "\\key e \\major",
     "E#m" : "\\key eis \\minor",
     "E#M" : "\\key eis \\major",
     "Ebm" : "\\key ees \\minor",
     "EbM" : "\\key ees \\major",
-    "Fm" : "\\key f \\minor",
-    "FM" : "\\key f \\major",
+    "Fm"  : "\\key f \\minor",
+    "FM"  : "\\key f \\major",
     "F#m" : "\\key fis \\minor",
     "F#M" : "\\key fis \\major",
     "Fbm" : "\\key fes \\minor",
     "FbM" : "\\key fes \\major",
-    "Gm" : "\\key g \\minor",
-    "GM" : "\\key g \\major",
+    "Gm"  : "\\key g \\minor",
+    "GM"  : "\\key g \\major",
     "G#m" : "\\key gis \\minor",
     "G#M" : "\\key gis \\major",
     "Gbm" : "\\key ges \\minor",
     "GbM" : "\\key ges \\major",
-    "Am" : "\\key a \\minor",
-    "AM" : "\\key a \\major",
+    "Am"  : "\\key a \\minor",
+    "AM"  : "\\key a \\major",
     "A#m" : "\\key ais \\minor",
     "A#M" : "\\key ais \\major",
     "Abm" : "\\key aes \\minor",
     "AbM" : "\\key aes \\major",
-    "Bm" : "\\key b \\minor",
-    "BM" : "\\key b \\major",
+    "Bm"  : "\\key b \\minor",
+    "BM"  : "\\key b \\major",
     "B#m" : "\\key bis \\minor",
     "B#M" : "\\key bis \\major",
     "Bbm" : "\\key bes \\minor",
@@ -127,7 +128,7 @@ def parser(string):
         elif divided_string[1] == "F1":
             return "\\clef bass \n"
         elif divided_string[1] == "C1":
-            return "\\clef soprano \n"    
+            return "\\clef soprano \n"
     
     elif divided_string[0] == "keySignature":
         return keySigSemanticToLP[divided_string[1]] + "\n"
